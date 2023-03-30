@@ -1,4 +1,4 @@
 (cram
- (applies_to :whole_subtree)
+ (applies_to instrument.t)
  (deps
   (package togglelog)))

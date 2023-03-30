@@ -13,21 +13,16 @@
 
 (license LICENSE)
 
-(documentation https://url/to/documentation)
-
 (cram enable)
 
 (package
  (name togglelog)
  (synopsis "A ppx for compile-time-optional logging")
- (description "A longer description")
  (depends
   (ocaml
    (>= 4.12.0))
   dune
   (ppxlib
-   (>= 0.22)))
- (tags
-  (topics "to describe" your project)))
+   (>= 0.22))))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

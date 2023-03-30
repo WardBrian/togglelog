@@ -5,5 +5,5 @@ let nop ~ctxt () =
   Ast_builder.Default.eunit ~loc
 
 let expand ~ctxt _ _ =
-  (* TODO - this doesn' check that the second argument has type int *)
+  (* TODO - this doesn' check that the second argument has type [str] *)
   nop ~ctxt ()

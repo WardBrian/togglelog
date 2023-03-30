@@ -1,8 +1,8 @@
 # togglelog - an OCaml PPX extension for zero-cost debug logging
 
-This is a [PPX extension](https://ocaml.org/docs/metaprogramming) for OCaml that allows you to add logging to your code which is completely removed at compile time in release builds.
+**This was an experiment and my first PPX driver. Further development is currently unlikely.**
 
-This was an experiment and my first PPX driver. Further development is currently unlikely.
+This is a [PPX extension](https://ocaml.org/docs/metaprogramming) for OCaml that allows you to add logging to your code which is completely removed at compile time in release builds.
 
 ## Example
 
