@@ -11,7 +11,7 @@ let () = [%toggle_log "Hello, world!"];
          [%toggle_log "SPECIFIER" (some_potentially_expensive_function ())]
 ```
 
-By default, the above code will be translated to the following:
+By default, the above code will be translated to (something equivalent to) the following:
 ```ocaml
 let () = (); ()
 ```

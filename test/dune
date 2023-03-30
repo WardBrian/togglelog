@@ -1,4 +1,4 @@
 (cram
- (applies_to instrument.t)
+ (applies_to instrument.t typeerror.t)
  (deps
   (package togglelog)))
