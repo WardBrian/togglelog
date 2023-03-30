@@ -1,0 +1,7 @@
+(library
+ (public_name togglelog)
+ (name togglelog)
+ (kind ppx_rewriter)
+ (libraries ppxlib)
+ (instrumentation.backend
+  (ppx togglelog)))

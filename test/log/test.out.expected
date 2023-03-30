@@ -1,0 +1,2 @@
+[LOG (TESTING) - test/log/test.ml:4:2] hi there
+[LOG - test/log/test.ml:5:2] hi there (unlabled)

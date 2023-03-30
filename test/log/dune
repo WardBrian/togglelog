@@ -1,0 +1,15 @@
+(executable
+ (name test)
+ (libraries togglelog)
+ (preprocess
+  (pps togglelog --enable)))
+
+(rule
+ (with-stdout-to
+  test.out
+  (run ./test.exe)))
+
+(rule
+ (alias runtest)
+ (action
+  (diff test.out.expected test.out)))
