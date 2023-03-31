@@ -4,4 +4,6 @@
  (kind ppx_rewriter)
  (libraries ppxlib)
  (instrumentation.backend
-  (ppx togglelog)))
+  (ppx togglelog))
+ (preprocess
+  (pps ppxlib.metaquot)))

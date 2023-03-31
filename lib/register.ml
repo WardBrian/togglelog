@@ -11,7 +11,7 @@ let extractor () =
 let () =
   Ppxlib.Driver.add_arg "--enable" (Arg.Set enabled) ~doc:"compile-in logging";
   let expand ~ctxt =
-    if !enabled then Mapper.expand ~ctxt else Null_mapper.expand ~ctxt
+    if !enabled then Mapper.expand_log ~ctxt else Mapper.expand_null ~ctxt
   in
   let extension =
     Extension.V3.declare "toggle_log" Extension.Context.expression
