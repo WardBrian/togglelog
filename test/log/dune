@@ -1,6 +1,5 @@
 (executable
  (name test)
- (libraries togglelog)
  (preprocess
   (pps togglelog --enable)))
 

@@ -1,6 +1,5 @@
 (executable
  (name test)
- (libraries togglelog)
  (instrumentation
   (backend togglelog --enable))
  (preprocess

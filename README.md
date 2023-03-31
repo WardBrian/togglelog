@@ -37,7 +37,6 @@ To use `togglelog` in your Dune project, add the following to your `dune` file:
 ```scheme
 (exectuable
   (name myexe)
-  (libraries togglelog)
   (preprocess (pps togglelog))
   (instrumentation (backend togglelog --enable)))
 ```
