@@ -1,4 +1,4 @@
 (cram
- (applies_to instrument.t typeerror.t)
+ (applies_to :whole_subtree)
  (deps
   (package togglelog)))

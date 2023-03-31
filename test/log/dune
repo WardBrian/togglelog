@@ -5,9 +5,14 @@
   (pps togglelog --enable)))
 
 (rule
- (with-stdout-to
-  test.out
-  (run ./test.exe)))
+ (target test.out)
+ (deps
+  %{bin:test}
+  (package togglelog))
+ (action
+  (with-stdout-to
+   %{target}
+   (run ./test.exe))))
 
 (rule
  (alias runtest)
