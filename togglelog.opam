@@ -4,7 +4,7 @@ version: "0.1.0"
 synopsis: "A ppx for compile-time-optional logging"
 maintainer: ["Brian Ward"]
 authors: ["Brian Ward"]
-license: "LICENSE"
+license: "MIT"
 homepage: "https://github.com/WardBrian/togglelog"
 bug-reports: "https://github.com/WardBrian/togglelog/issues"
 depends: [

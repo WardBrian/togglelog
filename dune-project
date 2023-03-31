@@ -11,7 +11,7 @@
 
 (maintainers "Brian Ward")
 
-(license LICENSE)
+(license MIT)
 
 (cram enable)
 
