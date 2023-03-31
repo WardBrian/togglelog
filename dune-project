@@ -15,6 +15,8 @@
 
 (cram enable)
 
+(version "0.1.0")
+
 (package
  (name togglelog)
  (synopsis "A ppx for compile-time-optional logging")

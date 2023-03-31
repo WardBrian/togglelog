@@ -5,9 +5,18 @@ let logger_name = "_log"
 let null ~loc = [%expr ()]
 
 (* also accepts log type argument to potentially generate a conditional *)
-let call ~loc _ =
+let call ~loc spec =
+  let spec = Option.value spec ~default:"" in
   let fun_name = Ast_builder.Default.evar ~loc logger_name in
-  [%expr [%e fun_name] ()]
+  [%expr
+    match Stdlib.Sys.getenv_opt "OCAML_TOGGLELOG" with
+    | None -> [%e fun_name] ()
+    | Some s
+      when List.mem
+             [%e Ast_builder.Default.estring ~loc spec]
+             (String.split_on_char ',' s) ->
+        [%e fun_name] ()
+    | _ -> ()]
 
 (** This does some tricks to guarantee typechecking of the log string.
     We generate a expression like
@@ -33,7 +42,7 @@ let build_log ~ctxt ?(enabled = true) ?log_type log_string =
   in
   let fun_body =
     [%expr
-      Printf.printf "%s%s\n"
+      Stdlib.Printf.printf "%s%s\n"
         [%e Ast_builder.Default.estring ~loc pos_string]
         [%e log_string]]
   in

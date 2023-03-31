@@ -1,0 +1,11 @@
+OCAML_TOGGLELOG='TESTING'         -- expected the first line
+[LOG (TESTING) - test/log/test.ml:4:2] hi there
+
+OCAML_TOGGLELOG='TESTING,'        -- expect both lines
+[LOG (TESTING) - test/log/test.ml:4:2] hi there
+[LOG - test/log/test.ml:5:2] hi there (unlabled)
+
+OCAML_TOGGLELOG='SOME_OTHER_SPEC' -- expect neither line
+
+OCAML_TOGGLELOG=''                -- expect second line
+[LOG - test/log/test.ml:5:2] hi there (unlabled)

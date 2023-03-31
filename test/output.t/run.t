@@ -20,10 +20,12 @@ The output of the preprocessor when not processing
   let my_greeting () = "hi there"
   let () =
     (let _log () =
-       Printf.printf "%s%s\n" "[LOG (TESTING) - test.ml:4:2] " (my_greeting ()) in
+       Stdlib.Printf.printf "%s%s\n" "[LOG (TESTING) - test.ml:4:2] "
+         (my_greeting ()) in
      ());
     (let _log () =
-       Printf.printf "%s%s\n" "[LOG - test.ml:5:2] " "hi there (unlabled)" in
+       Stdlib.Printf.printf "%s%s\n" "[LOG - test.ml:5:2] "
+         "hi there (unlabled)" in
      ())
 
 The output when logging is enabled
@@ -48,8 +50,16 @@ The output when logging is enabled
   let my_greeting () = "hi there"
   let () =
     (let _log () =
-       Printf.printf "%s%s\n" "[LOG (TESTING) - test.ml:4:2] " (my_greeting ()) in
-     _log ());
+       Stdlib.Printf.printf "%s%s\n" "[LOG (TESTING) - test.ml:4:2] "
+         (my_greeting ()) in
+     match Stdlib.Sys.getenv_opt "OCAML_TOGGLELOG" with
+     | None -> _log ()
+     | Some s when List.mem "TESTING" (String.split_on_char ',' s) -> _log ()
+     | _ -> ());
     (let _log () =
-       Printf.printf "%s%s\n" "[LOG - test.ml:5:2] " "hi there (unlabled)" in
-     _log ())
+       Stdlib.Printf.printf "%s%s\n" "[LOG - test.ml:5:2] "
+         "hi there (unlabled)" in
+     match Stdlib.Sys.getenv_opt "OCAML_TOGGLELOG" with
+     | None -> _log ()
+     | Some s when List.mem "" (String.split_on_char ',' s) -> _log ()
+     | _ -> ())

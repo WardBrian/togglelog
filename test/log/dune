@@ -18,3 +18,38 @@
  (alias runtest)
  (action
   (diff test.out.expected test.out)))
+
+(rule
+ (target test-filtered.out)
+ (deps
+  %{bin:test}
+  (package togglelog))
+ (action
+  (with-stdout-to
+   %{target}
+   (progn
+    (run echo "OCAML_TOGGLELOG='TESTING'         -- expected the first line")
+    (setenv
+     OCAML_TOGGLELOG
+     "TESTING"
+     (run ./test.exe))
+    (run echo "\nOCAML_TOGGLELOG='TESTING,'        -- expect both lines")
+    (setenv
+     OCAML_TOGGLELOG
+     "TESTING,"
+     (run ./test.exe))
+    (run echo "\nOCAML_TOGGLELOG='SOME_OTHER_SPEC' -- expect neither line")
+    (setenv
+     OCAML_TOGGLELOG
+     "SOME_OTHER_SPEC"
+     (run ./test.exe))
+    (run echo "\nOCAML_TOGGLELOG=''                -- expect second line")
+    (setenv
+     OCAML_TOGGLELOG
+     ""
+     (run ./test.exe))))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff test-filtered.out.expected test-filtered.out)))
