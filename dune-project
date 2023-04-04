@@ -22,7 +22,7 @@
  (synopsis "A ppx for compile-time-optional logging")
  (depends
   (ocaml
-   (>= 4.05.0))
+   (>= 4.08.0))
   dune
   (ppxlib
    (>= 0.22))))
