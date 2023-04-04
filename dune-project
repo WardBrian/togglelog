@@ -22,9 +22,7 @@
  (synopsis "A ppx for compile-time-optional logging")
  (depends
   (ocaml
-   (>= 4.12.0))
+   (>= 4.05.0))
   dune
   (ppxlib
    (>= 0.22))))
-
-; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

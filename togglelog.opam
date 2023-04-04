@@ -8,7 +8,7 @@ license: "MIT"
 homepage: "https://github.com/WardBrian/togglelog"
 bug-reports: "https://github.com/WardBrian/togglelog/issues"
 depends: [
-  "ocaml" {>= "4.12.0"}
+  "ocaml" {>= "4.05.0"}
   "dune" {>= "3.6"}
   "ppxlib" {>= "0.22"}
   "odoc" {with-doc}

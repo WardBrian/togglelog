@@ -1,5 +1,5 @@
 The output of the preprocessor when not processing
-  $ dune describe pp test.ml
+  $ dune describe pp test.ml 2> /dev/null
   [@@@ocaml.ppx.context
     {
       tool_name = "ppx_driver";
@@ -29,7 +29,7 @@ The output of the preprocessor when not processing
      ())
 
 The output when logging is enabled
-  $ dune describe pp --instrument-with togglelog test.ml
+  $ dune describe pp --instrument-with togglelog test.ml 2> /dev/null
   [@@@ocaml.ppx.context
     {
       tool_name = "ppx_driver";
